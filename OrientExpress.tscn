@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwa4m5oalai3e"]
+
+[ext_resource type="PackedScene" uid="uid://dp0kgx6fff33p" path="res://Player.tscn" id="1_jlefk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqxia"]
+size = Vector3(5, 1, 5)
+
+[node name="Node" type="Node"]
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_jlefk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_iqxia")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.920559, 0.390603, 0, -0.390603, 0.920559, 0, 2.93972, 0)
